@@ -62,8 +62,10 @@ function NameList() {
                 listName.map((el, i) => 
                   <li key={`${i + el.id}`} className="list-group-item">
                     {el.name}
-                    <button className="btn btn-danger float-right" onClick={() => deleteName(el.id)}>Borrar</button>
-                    <button className="btn btn-info float-right" onClick={() => editName(el)}>Editar</button>
+                    <div className="btn-group float-end">
+                      <button className="btn btn-secondary" onClick={() => editName(el)}>Editar</button>
+                      <button className="btn btn-danger" onClick={() => deleteName(el.id)}>Borrar</button>
+                    </div>
                   </li> 
                 )
               }
