@@ -1,6 +1,5 @@
 import React from 'react';
 import NameList from './NameList'
-import 'bootstrap/dist/css/bootstrap.css'
 
 
 function App() {
