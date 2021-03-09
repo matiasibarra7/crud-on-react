@@ -5,7 +5,7 @@ function NameList() {
   const [name, setName] = useState('');
   const [listName, setListName] = useState([])
   const [editing, setEditing] = useState(false)
-  const [IDEditing, setIDEditing] = useState('')
+  const [IDEditing, setIDEditing] = useState(null)
   const [error, setError] = useState(null)
 
   const createName = (e) => {
@@ -44,6 +44,7 @@ function NameList() {
       setName("")
       setEditing(false)
       setError(null)
+      setIDEditing(null)
     } else {
       setError("Debes ingresar algún valor para el nombre")
     }
@@ -60,7 +61,7 @@ function NameList() {
             <ul className="list-group">
               {
                 listName.map((el, i) => 
-                  <li key={`${i + el.id}`} className="list-group-item">
+                  <li key={`${i + el.id}`} className={`list-group-item ${el.id === IDEditing? "active" : ""}`}>
                     {el.name}
                     <div className="btn-group float-end">
                       <button className="btn btn-secondary" onClick={() => editName(el)}>Editar</button>
